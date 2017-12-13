@@ -9,15 +9,12 @@ namespace GUI
     class MainClass
     {
         public static Board CurrentBoard { get; set; }
-        public static UCITransceiver EngineOne { get; set; }
-        public static UCITransceiver EngineTwo { get; set; }
         public static GameStatus CurrentGameStatus { get; set; }
         public static CancellationTokenSource EngineStopTokenSource { get; private set; }
         public static ChessClock WhiteClock { get; private set; }
         public static ChessClock BlackClock { get; private set; }
         public static MainWindow win { get; private set; }
         public static PieceColour BoardOrientation { get; set; }
-        public static StrengthMeasure StrengthType { get; set; }
         public static int StrengthValue { get; set; }
         public static GameMode CurrentMode { get; set; }
         public static GameHistory CurrentGameHistory { get; set; }
@@ -33,14 +30,12 @@ namespace GUI
             BoardOrientation = PieceColour.White;
             WhiteClock = new ChessClock (PieceColour.White, new TimeSpan (0, 30, 0));
             BlackClock = new ChessClock (PieceColour.Black, new TimeSpan (0, 30, 0));
-            StrengthType = StrengthMeasure.Depth;
             StrengthValue = 7;
             CurrentMode = GameMode.OnePlayer;
             CurrentGameHistory = new GameHistory ();
 
             Application.Init ();
             win = new MainWindow ();
-            win.ClearEngineInfo ();
             win.UpdateClock (WhiteClock);
             win.UpdateClock (BlackClock);
             win.InitWidgets ();
