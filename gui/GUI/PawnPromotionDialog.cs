@@ -8,7 +8,7 @@ namespace GUI
 
         public PawnPromotionDialog ()
         {
-            this.Build ();
+            this.Build();
         }
 
         protected override void OnResponse (Gtk.ResponseType response_id)

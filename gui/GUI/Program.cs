@@ -55,19 +55,6 @@ namespace GUI
             */
         }
 
-        public static void CancelEngineTask()
-        {
-            EngineStopTokenSource.Cancel ();
-            Debug.Log ("Engine task cancel requested.");
-        }
-
-        public static void ResetEngineStopTokenSource()
-        {
-            EngineStopTokenSource.Dispose ();
-            EngineStopTokenSource = new CancellationTokenSource ();
-            Debug.Log ("Engine cancellation token source reset.");
-        }
-
         public static void UpdateClock()
         {
             if (CurrentGameStatus != GameStatus.Active) {

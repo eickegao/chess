@@ -15,16 +15,12 @@ namespace GUI
         ImageSurface boardBackground;
         ImageSurface selectionBorder;
         PieceSelectionState currentSelectionState = PieceSelectionState.None;
-        Regex engineOutputRegex = new Regex (@"^(?=.*(depth \d*))(?=.*(nps \d*))(?=.*(score (?:cp|mate) [+\-0-9]*))(?=.*(pv [a-h12345678 ]*)).*$");
         byte selectedPiece;
-        int materialDifference = 0;
         Cairo.Context boardContext;
         byte[] pieceValues = { 1, 3, 3, 5, 8 }; // Pawn, Knight, Bishop, Rook, Queen
         byte[] whiteSquares = { 1, 3, 5, 7, 8, 10, 12, 14, 17, 19, 21, 23, 24, 26, 28, 30, 33,
                                 35, 37, 39, 40, 42, 44, 46, 49, 51, 53, 55, 56, 58, 60, 62 };
         DateTime engineThinkCooldown = DateTime.Now;
-
-        Task engineThinkTask;
 
         public MainWindow () : base (Gtk.WindowType.Toplevel)
         {
@@ -128,7 +124,6 @@ namespace GUI
 
         void RedrawBoard()
         {
-            Debug.Log ("Redrawing board.");
             boardContext = Gdk.CairoHelper.Create (BoardArea.GdkWindow);
             double transx = Math.Abs((BoardArea.Allocation.Width - (boardBackground.Width * 0.75))) / 2;
             boardContext.Translate (transx, 0);
@@ -178,8 +173,6 @@ namespace GUI
 
         protected void OnPieceClick (object o, ButtonPressEventArgs args)
         {
-            Debug.Log (String.Format("BoardArea press at ({0}, {1})", args.Event.X, args.Event.Y));
-
             double transx = Math.Abs ((BoardArea.Allocation.Width - (boardBackground.Width * 0.75))) / 2;
 
             PointD clickLocation = new PointD (args.Event.X - transx, args.Event.Y - transx);
@@ -294,7 +287,6 @@ namespace GUI
                         MainClass.CurrentGameStatus = GameStatus.DrawRepetition;
                     }
                 } catch(InvalidOperationException) {
-                    Debug.Log ("Invalid move entered.");
                 }
                 Gtk.Application.Invoke(delegate {
                     RedrawBoard();

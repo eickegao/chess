@@ -27,7 +27,6 @@ namespace GUI
 
             timer.Elapsed += OnTimedEvent;
             timer.Enabled = true;
-            Debug.Log ("Clock started: " + Colour.ToString ());
             return true;
         }
 
@@ -38,8 +37,7 @@ namespace GUI
 
             timer.Elapsed -= OnTimedEvent;
             timer.Enabled = false;
-            Debug.Log ("Clock stopped: " + Colour.ToString ());
-            return true;
+           return true;
         }
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)

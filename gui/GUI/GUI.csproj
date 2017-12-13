@@ -70,7 +70,6 @@
     <Compile Include="PieceLegalMoves.cs" />
     <Compile Include="PiecePseudoLegalMoves.cs" />
     <Compile Include="DummyBoard.cs" />
-    <Compile Include="Debug.cs" />
     <Compile Include="ChessClock.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="PawnPromotionDialog.cs" />

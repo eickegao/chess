@@ -16,17 +16,6 @@ namespace GUI
      */
     public class DummyBoard : Board
     {
-        public override Square[] Squares { get; protected set; }
-        public override bool BlackCheck { get; set; }
-        public override bool WhiteCheck { get; set; }
-        public override bool BlackCastledR { get; set; }
-        public override bool WhiteCastledR { get; set; }
-        public override bool BlackCastledL { get; set; }
-        public override bool WhiteCastledL { get; set; }
-        public override PieceColour PlayerToMove { get; set; }
-        public override byte EnPassantSquare { get; protected set; }
-        public override PieceColour EnPassantColour { get; protected set; }
-
         public DummyBoard (Board other)
         {
             Squares = new Square[64];

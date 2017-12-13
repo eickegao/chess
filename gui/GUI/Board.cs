@@ -17,16 +17,16 @@ namespace GUI
      */
     public class Board
     {
-        public virtual Square[] Squares { get; protected set; }
-        public virtual bool BlackCheck { get; set; }
-        public virtual bool WhiteCheck { get; set; }
-        public virtual bool BlackCastledR { get; set; }
-        public virtual bool WhiteCastledR { get; set; }
-        public virtual bool BlackCastledL { get; set; }
-        public virtual bool WhiteCastledL { get; set; }
-        public virtual PieceColour PlayerToMove { get; set; }
-        public virtual byte EnPassantSquare { get; protected set; }
-        public virtual PieceColour EnPassantColour { get; protected set; }
+        public Square[] Squares { get; protected set; }
+        public bool BlackCheck { get; set; }
+        public bool WhiteCheck { get; set; }
+        public bool BlackCastledR { get; set; }
+        public bool WhiteCastledR { get; set; }
+        public bool BlackCastledL { get; set; }
+        public bool WhiteCastledL { get; set; }
+        public PieceColour PlayerToMove { get; set; }
+        public byte EnPassantSquare { get; protected set; }
+        public PieceColour EnPassantColour { get; protected set; }
 
         public readonly byte[] castleDestinations = { 2, 6, 56, 62 };
         public readonly byte[] pawnPromotionDestinations = { 0, 1, 2, 3, 4, 5, 6, 7,
